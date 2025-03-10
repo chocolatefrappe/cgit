@@ -4,7 +4,24 @@ FROM socheatsok78/s6-overlay-distribution:${S6_OVERLAY_VERSION} AS s6-overlay
 FROM nginx:stable-alpine
 COPY --link --from=s6-overlay / /
 
-RUN apk add --no-cache bash cgit fcgiwrap spawn-fcgi git git-daemon perl perl-cgi highlight
+RUN apk add --no-cache \
+    bash \
+    cgit \
+    fcgiwrap \
+    git \
+    git-daemon \
+    groff \
+    highlight \
+    lua5.3-libs \
+    perl \
+    perl-cgi \
+    py3-markdown \
+    py3-pygments \
+    py3-docutils \
+    spawn-fcgi \
+    tzdata \
+    xz \
+    zlib
 
 # Create git user and install gitolite
 RUN <<EOF
@@ -26,7 +43,7 @@ ENTRYPOINT [ "/init-shim" ]
 CMD [ "sleep", "infinity" ]
 
 USER root
-VOLUME [ "/data" ]
+VOLUME [ "/data", "/var/cache/cgit" ]
 WORKDIR /data
 
 EXPOSE 9418/tcp 9418/udp
