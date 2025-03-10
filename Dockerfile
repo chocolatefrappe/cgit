@@ -39,8 +39,9 @@ EOF
 
 # Switch back to root user
 ADD rootfs /
-ENTRYPOINT [ "/init-shim" ]
-CMD [ "sleep", "infinity" ]
+ENTRYPOINT [ "/init-shim", "/docker-entrypoint.sh" ]
+CMD [ "nginx", "-g", "daemon off;" ]
+STOPSIGNAL SIGQUIT
 
 USER root
 VOLUME [ "/data", "/var/cache/cgit" ]
