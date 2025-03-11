@@ -1,2 +1,2 @@
-if { spawn-fcgi -s /var/run/fcgiwrap/fcgiwrap.sock -u fcgiwrap -g www-data -- /usr/bin/fcgiwrap }
-chown nginx:nginx /var/run/fcgiwrap/fcgiwrap.sock
+if { spawn-fcgi -s /var/run/fcgiwrap/cgit.sock -u git -g git -- /usr/bin/fcgiwrap }
+chown nginx:nginx /var/run/fcgiwrap/cgit.sock
