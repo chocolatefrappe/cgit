@@ -23,17 +23,11 @@ RUN apk add --no-cache \
     xz \
     zlib
 
-# Create git user and install gitolite
+# Create git user and group
 RUN <<EOF
     mkdir -p /var/lib/git
     addgroup -S git
     adduser -S -D -G git -h /var/lib/git git
-EOF
-ADD https://github.com/sitaramc/gitolite.git /var/lib/git/gitolite
-RUN <<EOF
-    cd /var/lib/git
-    mkdir -p /var/lib/git/bin
-    gitolite/install -to /var/lib/git/bin
     chown -R git:git /var/lib/git
 EOF
 
@@ -45,4 +39,5 @@ STOPSIGNAL SIGTERM
 VOLUME [ "/var/lib/git/repositories", "/var/cache/cgit" ]
 WORKDIR /var/lib/git/repositories
 
+# The git:// protocol is served by the git-daemon service on port 9418
 EXPOSE 9418/tcp 9418/udp
