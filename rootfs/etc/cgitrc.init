@@ -4,6 +4,7 @@ CGIT_DOMAIN=${CGIT_DOMAIN:-git.localhost}
 CGIT_ROOT_TITLE=${CGIT_ROOT_TITLE:-"${CGIT_DOMAIN} repositories"}
 CGIT_ROOT_DESC=${CGIT_ROOT_DESC:-"Git repositories hosted at ${CGIT_DOMAIN}"}
 CGIT_VROOT=${CGIT_VROOT:-/}
+CGIT_CLONE_URL_SCHEME=${CGIT_CLONE_URL_SCHEME:-https}
 
 cat <<EOF
 # CGit config file (cgitrc)
@@ -12,7 +13,7 @@ cat <<EOF
 root-title=$CGIT_ROOT_TITLE
 root-desc=$CGIT_ROOT_DESC
 virtual-root=$CGIT_VROOT
-clone-url=git://$CGIT_DOMAIN/\$CGIT_REPO_URL git@$CGIT_DOMAIN:\$CGIT_REPO_URL
+clone-url=git://$CGIT_DOMAIN/\$CGIT_REPO_URL ${CGIT_CLONE_URL_SCHEME}://$CGIT_DOMAIN/\$CGIT_REPO_URL
 
 # Highlight source code with python pygments-based highlighter
 source-filter=/usr/lib/cgit/filters/syntax-highlighting-custom.sh

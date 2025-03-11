@@ -36,6 +36,12 @@ RUN <<EOF
     gitolite/install -to /var/lib/git/bin
     chown -R git:git /var/lib/git
 EOF
+# Grant nginx user access to various groups
+RUN <<EOF
+    adduser nginx www-data
+    adduser nginx fcgiwrap
+    adduser nginx git
+EOF
 
 # Switch back to root user
 ADD rootfs /
