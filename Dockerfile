@@ -29,12 +29,12 @@ RUN <<EOF
     addgroup -S git
     adduser -S -D -G git -h /var/lib/git git
 EOF
-USER git
 ADD https://github.com/sitaramc/gitolite.git /var/lib/git/gitolite
 RUN <<EOF
     cd /var/lib/git
     mkdir -p /var/lib/git/bin
     gitolite/install -to /var/lib/git/bin
+    chown -R git:git /var/lib/git
 EOF
 
 # Switch back to root user
@@ -43,7 +43,6 @@ ENTRYPOINT [ "/init-shim", "/docker-entrypoint-shim.sh" ]
 CMD [ "nginx", "-g", "daemon off;" ]
 STOPSIGNAL SIGTERM
 
-USER root
 VOLUME [ "/var/lib/git/repositories", "/var/cache/cgit" ]
 WORKDIR /var/lib/git/repositories
 
