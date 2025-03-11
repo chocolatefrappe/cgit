@@ -85,15 +85,6 @@ readme=:install.txt
 readme=:INSTALL
 readme=:install
 
-# Disable adhoc downloads of this repo
-repo.snapshots=0
-
-# Disable line-counts for this repo
-repo.enable-log-linecount=0
-
-# Restrict the max statistics period for this repo
-repo.max-stats=month
-
 ##
 ## List of repositories.
 ## PS: Any repositories listed when section is unset will not be
@@ -106,4 +97,13 @@ repo.max-stats=month
 # Note: For cgit to automatically look
 #       in the directory for git repositories
 scan-path=/data
+
+# Disable adhoc downloads of this repo
+repo.snapshots=0
+
+# Disable line-counts for this repo
+repo.enable-log-linecount=0
+
+# Restrict the max statistics period for this repo
+repo.max-stats=month
 EOF
