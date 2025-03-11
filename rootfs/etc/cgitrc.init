@@ -96,7 +96,7 @@ readme=:install
 
 # Note: For cgit to automatically look
 #       in the directory for git repositories
-scan-path=/data
+scan-path=/var/lib/git/repositories
 
 # Disable adhoc downloads of this repo
 repo.snapshots=0

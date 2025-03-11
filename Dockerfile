@@ -44,7 +44,7 @@ CMD [ "nginx", "-g", "daemon off;" ]
 STOPSIGNAL SIGTERM
 
 USER root
-VOLUME [ "/data", "/var/cache/cgit" ]
-WORKDIR /data
+VOLUME [ "/var/lib/git/repositories", "/var/cache/cgit" ]
+WORKDIR /var/lib/git/repositories
 
 EXPOSE 9418/tcp 9418/udp
