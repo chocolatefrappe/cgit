@@ -36,8 +36,8 @@ ENTRYPOINT [ "/init-shim", "/docker-entrypoint-shim.sh" ]
 CMD [ "nginx", "-g", "daemon off;" ]
 STOPSIGNAL SIGTERM
 
-VOLUME [ "/var/lib/git/repositories", "/var/cache/cgit" ]
-WORKDIR /var/lib/git/repositories
+VOLUME [ "/srv/git", "/var/cache/cgit" ]
+WORKDIR /srv/git
 
 # The following ports are exposed by default
 # The git:// protocol is served by the git-daemon service on port 9418

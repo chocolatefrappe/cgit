@@ -1,2 +1,2 @@
 #!/command/execlineb -P
-/usr/bin/git daemon --verbose --reuseaddr --user=git --base-path=/var/lib/git/repositories /var/lib/git/repositories
+/usr/bin/git daemon --verbose --reuseaddr --user=git --base-path=/srv/git /srv/git
