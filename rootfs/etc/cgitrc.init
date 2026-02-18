@@ -18,6 +18,10 @@ root-desc=$CGIT_ROOT_DESC
 virtual-root=$CGIT_VROOT
 clone-url=git://$CGIT_CLONE_URL_HOST/\$CGIT_REPO_URL $CGIT_CLONE_URL_SCHEME://$CGIT_CLONE_URL_HOST/\$CGIT_REPO_URL
 
+# Default Theme
+css=/cgit.css
+logo=/cgit.png
+
 # Highlight source code with python pygments-based highlighter
 source-filter=/usr/lib/cgit/filters/syntax-highlighting-custom.sh
 
