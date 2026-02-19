@@ -4,6 +4,7 @@ CGIT_DOMAIN=${CGIT_DOMAIN:-git.localhost}
 CGIT_ROOT_TITLE=${CGIT_ROOT_TITLE:-"${CGIT_DOMAIN} repositories"}
 CGIT_ROOT_DESC=${CGIT_ROOT_DESC:-"Git repositories hosted at ${CGIT_DOMAIN}"}
 CGIT_VROOT=${CGIT_VROOT:-/}
+CGIT_THEME=${CGIT_THEME:-default}
 
 # Configure the git clone urls
 CGIT_CLONE_URL_SCHEME=${CGIT_CLONE_URL_SCHEME:-https}
@@ -19,7 +20,7 @@ virtual-root=$CGIT_VROOT
 clone-url=git://$CGIT_CLONE_URL_HOST/\$CGIT_REPO_URL $CGIT_CLONE_URL_SCHEME://$CGIT_CLONE_URL_HOST/\$CGIT_REPO_URL
 
 # Default Theme
-css=/cgit.css
+css=/cgit-${CGIT_THEME}.css
 logo=/cgit.png
 
 # Highlight source code with python pygments-based highlighter
