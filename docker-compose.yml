@@ -1,0 +1,11 @@
+services:
+  cgit:
+    build:
+      context: .
+    ports:
+      - "8080:80"
+    environment:
+      - CGIT_DOMAIN=localhost:8080
+      - CGIT_THEME=dark
+    volumes:
+      - ./test:/srv/git:ro

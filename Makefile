@@ -1,5 +1,5 @@
 it: assets
-	docker buildx bake --load dev
+	docker buildx bake -f docker-bake.hcl --load dev
 
 assets: \
 	rootfs/usr/share/webapps/cgit/cgit-dark.css \
