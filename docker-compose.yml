@@ -3,9 +3,9 @@ services:
     build:
       context: .
     ports:
-      - "8080:80"
+      - "8180:80"
     environment:
-      - CGIT_DOMAIN=localhost:8080
+      - CGIT_DOMAIN=localhost:8180
       - CGIT_THEME=dark
     volumes:
       - ./test:/srv/git:ro
